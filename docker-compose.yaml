@@ -1,0 +1,25 @@
+version: "3.8"
+
+networks:
+  deployment-practice-network:
+
+services:
+  frontend:
+    container_name: front
+    image: huychac03/quoteapp_frontend:latest
+    restart: always
+    ports:
+      - 0.0.0.0:18080:80
+    networks:
+      - deployment-practice-network
+  backend:
+    container_name: back
+    image:  huychac03/quoteapp_backend:latest
+    restart: always
+    ports:
+      - 0.0.0.0:13000:3000
+    networks:
+      - deployment-practice-network
+
+
+
